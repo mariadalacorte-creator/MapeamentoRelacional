@@ -25,6 +25,11 @@ public class AlunoService {
 		return aluno.orElse (null);
 	}
 	
+	//QUERY METHOD
+	public List <Aluno> buscarAlunoPorCidade (String cidade){
+		return alunoRepository.findByCidade(cidade);
+	}
+	
 	public Aluno salvarAluno (Aluno atAluno) {
 		return alunoRepository.save(atAluno);
 	}

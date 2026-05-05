@@ -42,6 +42,13 @@ import com.projetoMapeamentoRelacional.service.AlunoService;
 	List<Aluno> aluno = alunoService.buscarTodos();
 	return ResponseEntity.ok(aluno);
 	}
+	
+	//query method
+	@GetMapping ("/cidade/{cidade}")
+	public ResponseEntity <List<Aluno>> buscarAlunoPorCidade (@PathVariable String cidade){
+	List <Aluno> aluno = alunoService.buscarAlunoPorCidade(cidade);
+		return ResponseEntity.ok(aluno);
+	}		
 
 	@PostMapping("/")
 	public ResponseEntity<Aluno> salvarAluno(@RequestBody Aluno aluno) {

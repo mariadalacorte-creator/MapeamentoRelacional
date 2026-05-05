@@ -3,8 +3,10 @@ package com.projetoMapeamentoRelacional.service;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import com.projetoMapeamentoRelacional.entity.Aluno;
 import com.projetoMapeamentoRelacional.entity.Turma;
 import com.projetoMapeamentoRelacional.repository.TurmaRepository;
 
@@ -23,6 +25,11 @@ private final TurmaRepository turmaRepository;
 	public Turma buscarPorId(Long id) {
 		Optional <Turma> turma = turmaRepository.findById(id);
 		return turma.orElse(null);
+	}
+	
+	//query method
+	public List<Turma> buscarTurmaPorNome (String nome){
+		return turmaRepository.findByNome(nome);
 	}
 	
 	public Turma salvarTurma (Turma atTurma) {

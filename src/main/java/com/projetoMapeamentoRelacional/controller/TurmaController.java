@@ -42,6 +42,13 @@ public class TurmaController {
 	List<Turma> turma = turmaService.buscarTodos();
 	return ResponseEntity.ok(turma);
 	}
+	
+	//query methods
+	@GetMapping("/nome/{nome}")
+	public ResponseEntity <List<Turma>> buscarTurmaPorNome (@PathVariable String nome){
+		List <Turma> turma = turmaService.buscarTurmaPorNome (nome);
+				return ResponseEntity.ok(turma);
+	}
 
 	@PostMapping("/")
 	public ResponseEntity<Turma> salvarTurma(@RequestBody Turma turma) {
